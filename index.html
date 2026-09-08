@@ -25,7 +25,15 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background
 .btn{background:var(--red);color:#fff}
 .btn.dark{background:var(--blue)}
 .staffgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:25px}
-.person{background:#fff;border-radius:14px;padding:18px;border-left:5px solid var(--red)}
+.orggroup{margin-top:28px}
+.orgtitle{font-size:18px;font-weight:800;color:var(--navy);margin:0 0 14px}
+.person{background:#fff;border-radius:18px;padding:20px;border-left:5px solid var(--red);box-shadow:0 8px 22px rgba(8,30,55,.08)}
+.person .role{display:block;color:var(--red);font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.person .name{font-size:20px;font-weight:800;color:var(--navy)}
+.orgintro{max-width:850px;font-size:17px;line-height:1.6}
+.orglist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.orgitem{background:#fff;border-radius:16px;padding:16px 18px;border-top:4px solid var(--blue);box-shadow:0 7px 18px rgba(8,30,55,.07);font-weight:700;color:var(--navy)}
+.orgitem span{display:block;font-size:14px;color:#64748b;font-weight:600;margin-top:4px}
 .form{max-width:900px;background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 24px rgba(6,28,56,.10)}
 .formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 label{font-weight:700;font-size:14px}
@@ -89,11 +97,12 @@ footer a{color:#fff}
 
 <section id="organigramma" class="section">
 <h2>Organigramma</h2>
+<p class="orgintro">L'organigramma societario verrà aggiornato prossimamente. Per il momento presentiamo il Direttore Sportivo.</p>
+<div class="orggroup">
+<h3 class="orgtitle">Direzione Sportiva</h3>
 <div class="staffgrid">
-<div class="person"><strong>Presidente</strong><br>Enzo Lomanto</div>
-<div class="person"><strong>Vice Presidente</strong><br>Erino Cacciatore</div>
-<div class="person"><strong>Responsabile Volley</strong><br>Rosy Favarò</div>
-<div class="person"><strong>Responsabile Social</strong><br>Luigi Catania</div>
+<div class="person"><span class="role">Direttore Sportivo</span><span class="name">Donato De Stena</span></div>
+</div>
 </div>
 </section>
 
