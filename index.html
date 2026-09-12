@@ -25,8 +25,8 @@
 .hotspot{position:absolute;display:block;background:transparent;z-index:3}
 .hotspot:focus{outline:2px solid rgba(255,255,255,.9);outline-offset:2px}
 @media(max-width:700px){
-  .home-canvas{overflow-x:auto}
-  .home-canvas img{width:100%;min-width:700px;max-width:none}
+  .home-canvas{overflow:hidden;width:100%}
+  .home-canvas img{display:block;width:100%;min-width:0;max-width:100%;height:auto}
 }
 
 /* Accesso per ruolo: demo client-side. Per la produzione servono backend, autenticazione e database sicuri. */
@@ -191,7 +191,20 @@ function printRegistration(){
   const w=window.open('','_blank','width=900,height=1000');
   if(!w){alert('Il browser ha bloccato la finestra di stampa. Consenti i popup per questo sito.');return;}
   w.document.write(`<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Modulo iscrizione - ASD Chiaramontana</title><style>
-  @page{size:A4;margin:16mm}body{font-family:Arial,Helvetica,sans-serif;color:#10233d;margin:0;font-size:12px}header{display:flex;align-items:center;border-bottom:3px solid #c8102e;padding-bottom:12px;margin-bottom:18px}header img{width:78px;height:78px;object-fit:contain;margin-right:14px}h1{font-size:22px;margin:0;color:#073b7a}h2{font-size:15px;margin:4px 0;color:#c8102e}h3{font-size:15px;margin:20px 0 8px;color:#073b7a;border-bottom:1px solid #d9e1ec;padding-bottom:5px}.row{display:grid;grid-template-columns:38% 62%;border-bottom:1px solid #e2e7ee;min-height:27px}.key,.val{padding:6px 7px}.key{font-weight:700;background:#f3f6fa}.val{white-space:pre-wrap;overflow-wrap:anywhere}.signature{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}.sig{border-top:1px solid #10233d;padding-top:7px;text-align:center;min-height:35px}.footer{margin-top:28px;font-size:10px;color:#66758a;text-align:center;border-top:1px solid #d9e1ec;padding-top:8px}@media print{.no-print{display:none}}</style></head><body>
+  @page{size:A4;margin:16mm}body{font-family:Arial,Helvetica,sans-serif;color:#10233d;margin:0;font-size:12px}header{display:flex;align-items:center;border-bottom:3px solid #c8102e;padding-bottom:12px;margin-bottom:18px}header img{width:78px;height:78px;object-fit:contain;margin-right:14px}h1{font-size:22px;margin:0;color:#073b7a}h2{font-size:15px;margin:4px 0;color:#c8102e}h3{font-size:15px;margin:20px 0 8px;color:#073b7a;border-bottom:1px solid #d9e1ec;padding-bottom:5px}.row{display:grid;grid-template-columns:38% 62%;border-bottom:1px solid #e2e7ee;min-height:27px}.key,.val{padding:6px 7px}.key{font-weight:700;background:#f3f6fa}.val{white-space:pre-wrap;overflow-wrap:anywhere}.signature{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px}.sig{border-top:1px solid #10233d;padding-top:7px;text-align:center;min-height:35px}.footer{margin-top:28px;font-size:10px;color:#66758a;text-align:center;border-top:1px solid #d9e1ec;padding-top:8px}@media print{.no-print{display:none}}
+/* Adattamento smartphone: riduce la visualizzazione senza modificare la Home definitiva */
+@media (max-width: 700px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  .home-canvas {
+    transform: scale(0.84);
+    transform-origin: top center;
+    width: 100%;
+    margin-bottom: -16%;
+  }
+}
+</style></head><body>
   <header>${logo?`<img src="${logo}" alt="Logo ASD Chiaramontana">`:''}<div><h1>ASD CHIARAMONTANA – MUSSOMELI</h1><h2>MODULO DI ISCRIZIONE · STAGIONE SPORTIVA 2026/2027</h2><div>Documento riepilogativo della richiesta di iscrizione</div></div></header>
   <h3>Dati e dichiarazioni inseriti nel modulo</h3>${rows.join('')}
   <div class="signature"><div class="sig">Firma atleta / genitore / tutore</div><div class="sig">Data</div></div>
